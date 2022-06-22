@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouteConfigLoadEnd } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SaagieApiService } from 'src/app/services/saagie-api.service';
 import { environment } from 'src/environments/environment';
 
@@ -15,7 +15,8 @@ export class DetailProjectComponent implements OnInit {
   environment = environment;
 
   constructor(private saagieApiService: SaagieApiService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getProjectData(this.projectId);
@@ -32,7 +33,7 @@ export class DetailProjectComponent implements OnInit {
 
   duplicateProject(projectId: string) {
     this.saagieApiService.duplicateProject(projectId);
-    
+    this.router.navigate(['/list-project']);
   }
 
 }

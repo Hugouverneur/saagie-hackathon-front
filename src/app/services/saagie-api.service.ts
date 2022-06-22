@@ -57,9 +57,7 @@ export class SaagieApiService {
   }
 
   duplicateProject(projectId: string) {
-    console.log(projectId);
-    
-    // this.request('POST', `${environment.serverUrl}/...`);
+    this.request('POST', `${environment.serverUrl}/copyproject?projectId=${projectId}`);
   }
 
 }

@@ -1,9 +1,9 @@
 <div>
     <h1>Projets :</h1>
-    <div class="list_element" *ngFor="let project of projects">
-        <a routerLink="/detail-project/{{ project.id }}">{{ project.name }}</a>
+    <a routerLink="/detail-project/{{ project.id }}" class="list_element" *ngFor="let project of projects">
+        <p>{{ project.name }}</p>
         <div>
             <p>{{ project.status }}</p>
         </div>
-    </div>
+    </a>
 </div>

@@ -7,7 +7,7 @@
     </div>
 
     <div>
-        <button (click)="duplicateProject(projectData.id)">Dupliquer</button>
+        <button (click)="duplicateProject(projectId)">Dupliquer</button>
         <a  href="{{ environment.serverUrl }}/project?projectId={{ projectId }}" target="_blank">Exporter</a>
     </div>
 </div>
@@ -16,21 +16,21 @@
     <div class="project_info_block">
         <p><strong>Apps</strong> :</p>
         <ul>
-            <li *ngFor="let app of projectData.Apps">{{ app.id }}</li>
+            <li *ngFor="let app of projectData.apps">{{ app.id }}</li>
         </ul>
     </div>
     
     <div class="project_info_block">
         <p><strong>Jobs</strong> :</p>
         <ul>
-            <li *ngFor="let job of projectData.Jobs">{{ job.jobCategory }}</li>
+            <li *ngFor="let job of projectData.jobs">{{ job.category }}</li>
         </ul>
     </div>
     
     <div class="project_info_block">
         <p><strong>Droits</strong> :</p>
         <ul>
-            <li *ngFor="let right of projectData.Rights">{{ right.name }} • {{ right.role }}</li>
+            <li *ngFor="let right of projectData.rights">{{ right.name }} • {{ right.role }}</li>
         </ul>
     </div>
 </div>
