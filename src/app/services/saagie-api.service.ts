@@ -43,9 +43,8 @@ export class SaagieApiService {
     return new Promise(
       (resolve, reject) => {
 
-        this.request('GET', `${environment.serverUrl}/project`, {projectId: projectId}).then(
+        this.request('GET', `${environment.serverUrl}/project?projectId=${projectId}`).then(
           (data: any) => {
-            console.log(data);
             resolve(data);
           },
           (error) => {
@@ -55,6 +54,12 @@ export class SaagieApiService {
         
       }
     )
+  }
+
+  duplicateProject(projectId: string) {
+    console.log(projectId);
+    
+    // this.request('POST', `${environment.serverUrl}/...`);
   }
 
 }

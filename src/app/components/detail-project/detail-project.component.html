@@ -1,1 +1,36 @@
-<p>detail-project works!</p>
+<div class="project_info_block project_header">
+    <h1>{{ projectData.name }}</h1>
+    <p>par {{ projectData.creator }}</p>
+    
+    <div *ngIf="projectData.description != ''">
+        <p><strong>Description</strong> : {{ projectData.description }}</p>
+    </div>
+
+    <div>
+        <button (click)="duplicateProject(projectData.id)">Dupliquer</button>
+        <a  href="{{ environment.serverUrl }}/project?projectId={{ projectId }}" target="_blank">Exporter</a>
+    </div>
+</div>
+
+<div class="inline_info">
+    <div class="project_info_block">
+        <p><strong>Apps</strong> :</p>
+        <ul>
+            <li *ngFor="let app of projectData.Apps">{{ app.id }}</li>
+        </ul>
+    </div>
+    
+    <div class="project_info_block">
+        <p><strong>Jobs</strong> :</p>
+        <ul>
+            <li *ngFor="let job of projectData.Jobs">{{ job.jobCategory }}</li>
+        </ul>
+    </div>
+    
+    <div class="project_info_block">
+        <p><strong>Droits</strong> :</p>
+        <ul>
+            <li *ngFor="let right of projectData.Rights">{{ right.name }} • {{ right.role }}</li>
+        </ul>
+    </div>
+</div>
